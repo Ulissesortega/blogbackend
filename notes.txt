@@ -1,0 +1,96 @@
+Blog Api Notes
+
+//Goals
+
+    Create an API for the front end of our Blog. This API must handle all of our CRUD functions.
+
+    In this APP, the user should be able to loging, create an account, 
+    
+    Home Page (see all publish blog items)
+
+    Profile Page (Edit's user's Blog item, delete a Blog item and Add a Blog item.)
+
+
+CodeBase Structure
+
+//Controllers
+
+    Controller/Folder
+        UserController // File
+            Login // Endpoint
+            Create a User Endpoint
+            Update a User EndPoint
+            Delete a User EndPoint
+
+        BlogController // File
+            Create Blog Item Endpoint //C
+            Get All Blog Items        //R  
+            Update Blog Item          //U  
+            Delete Blog Item          //D
+
+            Get blog items by UserID
+            Get blog items by Tag
+            Get blog items by Categories 
+
+
+//Services
+    Services // Folder
+        Context // Folder
+            DataContext // File
+
+        UserService // File
+            GetUserByUserNameFunction(for login Purposes)
+            Login // Endpoint
+            Create a User Endpoint
+            Update a User EndPoint
+            Delete a User EndPoint
+
+        BlogService // File
+            Create Blog Item  // Functions //C
+            Get All Blog Items             //R  
+            Update Blog Item               //U  
+            Delete Blog Item               //D
+        
+        Password Service // File
+            Hash Password
+            Verify Hash Password
+
+//Models
+
+    Models // Folder
+        UserModel // File
+            int ID 
+            string UserName 
+            string Salt
+            string Hash   
+
+        BlogItemModel // File
+            Int ID
+            Int UserID
+            string Publishing
+            string Date 
+            string Title
+            String Image
+            String Description
+            string Categories
+            String Tags
+            bool isPublished
+            bool isDeleted (softd delete act like is deleted but is not, it's still in the database just in case we need it back)
+
+        ------- Items above are save to DB^ -------
+        DTO's // Folder
+            LoginDTO // DTO File
+                string UserName 
+                string Password
+            CreateAccountDTO // File
+                int ID = 0
+                string UserName
+                string Password
+            PasswordDTO // File
+                string Salt
+                string Hash
+
+Admin: AcademyBlogAdmin
+Password: AcademyBlogPassword!
+
+
